@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href={{url_for('static',filename ="bootstrap.css")}}>
+	<link rel="stylesheet" type="text/css" href={{url_for('static',filename  ="style.css")}}>
+</head>
+<body>
+	<div class ='container-fluid bg-info'>
+		<h1 class ='text-light' style ='font-family:sans-serif'>Hybrid E-Agric Consultants</h1>
+	</div>
+	<div class ='container-fluid text-center'>
+		<h3 style ='font-family:sans-serif'>Crop Recommendation System</h3>
+			<form method ='POST' action ='/prediction'>
+				<div class ='form-group'>
+					<label>Nitrogen</label>
+				</div>
+				<div>
+					<input id='nitrogen' type ='text' name ='Nitrogen' class ='form-control mx-auto' placeholder ='200'>
+				</div>
+				<div class ='form-group'>
+					<label>Phosphorus</label>
+				</div>
+				<div>
+					<input id ='phosphorus' type ='text' name ='phosphorus' class ='form-control mx-auto' placeholder ='120'>
+				</div>
+				<div class ='form-group'>
+					<label>Temperature</label>
+				</div>
+				<div>
+					<input id ='temperature' type ='text' name= 'temperature' placeholder ='90' class ='form-control mx-auto'>
+				</div>
+				<div class ='form-group'>
+					<label>Humidity</label>
+				</div>
+				<div>
+					<input id='humility' type ='text' name ='humility' placeholder ='70' class ='form-control mx-auto'>
+				</div>
+				<div class ='form-group'>
+					<label>Rainfall</label>
+				</div>
+				<div>
+					<input id='rain' type ='text' name ='rainfall' placeholder ='89' class ='form-control mx-auto'>
+				</div>
+				{%if result %}
+				<span>{{result}}</span>
+				{% endif%}
+				<br>
+				<button class ='btn btn-success'>Check crop recommendation</button>
+			</form>
+	</div>
+
+	<script type="text/javascript">
+		const validation = () => {
+    let temperature = document.getElementById('temperature').value;
+    let nitrogen = document.getElementById('nitrogen').value;
+    let phosphorus = document.getElementById('phosphorus').value;
+    let humidity = document.getElementById('humidity').value;
+    let rainfall = document.getElementById('rain').value;
+
+    if (!temperature || !nitrogen || !phosphorus || !humidity || !rainfall) {
+        alert('Empty fields are not allowed');
+        return false;
+    }
+
+    if (isNaN(temperature) || isNaN(nitrogen) || isNaN(phosphorus) || isNaN(humidity) || isNaN(rainfall)) {
+        alert('Only numbers are allowed');
+        return false;
+    }
+
+    return true;
+}
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+label {
+	font-size:23px;
+	font-weight: bolder;
+}
+input[type ='text']{
+	width: 40%;
+	border-bottom: 1px solid red;
+}
+button{
+	margin-top: 10px;
+}
+input[type ='text']:hover{
+	border-bottom: 1px solid blue;
+}
+button:hover{
+	color: black;
+}
